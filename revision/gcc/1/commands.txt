@@ -1,0 +1,15 @@
+ 1636  gcc -E 1.c -o 1.i
+ 1637  gcc -S 1.i -o 1.s
+ 1638  gcc -c 1.s -o 1.o 
+ 1639  gcc 1.o -o 1_dynamic_default
+ 1640  gcc -static 1.o -o 1_static
+ 1641  ldd 1_static 
+ 1642  ldd 1_dynamic_default 
+ 1643  gcc 1.c
+ 1644  nm a.out | grep printf
+ 1645  nm 1.static | grep printf
+ 1646  nm 1_static | grep printf
+ 1647  nm 1_dynamic_default | grep printf
+ 1648  ls -l a.out
+ 1649  file a.out
+ 1650  history > commands.txt
