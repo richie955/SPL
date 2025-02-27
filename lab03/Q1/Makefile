@@ -1,22 +1,22 @@
 CC = gcc
-CFLAG = -Wall -g
+CLFAGS = -Wall -g
 
-srcs = math.c utils.c main.c
-objs = math.o utils.o main.o
+srcs = main.c math.c utils.c
+objs = main.o math.o utils.o
 
 target = app
 
 all : $(target)
 
-$(target): $(objs)
-	$(CC) $(CFLAG) -o $@ $(objs)
+$(target) : $(objs)
+	$(CC) $(CLFAGS) $(objs) -o $@
 
-%.o:%.c
-	$(CC) $(CFLAG) -c $< -o $@
+.o : .c 
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-clean:
-	rm -f $(objs) $(targets)
+clean :
+	rm -f $(objs) $(target)
 
-main.o : math.h utils.h
-utils.o : math.h utils.h
-math.o : math.h
+main.o:math.h utils.h
+utils.o :utils.h
+math.o :math.h

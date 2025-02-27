@@ -25,3 +25,6 @@ $(obj_dir)/%.o: $(src_dir)/%.c
 
 clean:
 	rm -rf $(obj_dir) $(dep_dir) $(target)
+
+
+DEP_FILES = $(patsubst $(src_dir)/%.c,$(dep_dir)/%.d,$(src_files))
